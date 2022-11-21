@@ -12,7 +12,10 @@ def VocalCheck(NameList):
     for i in NameList:
         index = NameList.index(i)
         for j in vocals:
-            if i == j and (str(NameList[index - 1]) + str(NameList[index])) != "bi":
+            if i == j and index == 0:
+                NameList.insert(index + 1, "bi")
+
+            elif i == j and (str(NameList[index - 1]) + str(NameList[index])) != "bi":
                 NameList.insert(index + 1, "bi")
 
 
