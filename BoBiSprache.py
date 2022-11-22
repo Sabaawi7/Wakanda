@@ -2,24 +2,17 @@
 put the letter "bi" after each vocal letter in your name"""
 
 print("Welcome to the BoBiSprache programm")
-Name = input("Please enter your name to be BoBied :D : ")
-NameList = list(Name.lower())
-
-vocals = ["a", "e", "i", "o", "u"]
+username = input("Please enter your name to be BoBied :D : ")
+vowels = ["a", "e", "i", "o", "u"]
 
 
-def VocalCheck(NameList):
-    for i in NameList:
-        index = NameList.index(i)
-        for j in vocals:
-            if i == j and index == 0:
-                NameList.insert(index + 1, "bi")
-
-            elif i == j and (str(NameList[index - 1]) + str(NameList[index])) != "bi":
-                NameList.insert(index + 1, "bi")
+def VowelCheck(name):
+    bobified_name = ""
+    for i in name:
+        bobified_name += i
+        if i in vowels:
+            bobified_name += "bi"
+    return bobified_name
 
 
-VocalCheck(NameList)
-NewName = ""
-NewName = (NewName.join(NameList)).title()
-print("Your New Name is: %s" % NewName)
+print("Your New Name is: %s" % VowelCheck(username).title())
